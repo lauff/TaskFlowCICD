@@ -1,0 +1,17 @@
+{
+    "name": "node-postgres-app",
+    "version": "1.0.0",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "test": "jest"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "pg": "^8.8.0"
+    },
+    "devDependencies": {
+        "jest": "^29.7.0",
+        "supertest": "^7.0.0"
+    }
+}
