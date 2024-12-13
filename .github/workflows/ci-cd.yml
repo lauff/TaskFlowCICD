@@ -55,6 +55,9 @@ jobs:
     needs: docker-build-push
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+    
       - name: Deploy to Kubernetes
         run: |
           kubectl apply -f k8s-deployment.yml
