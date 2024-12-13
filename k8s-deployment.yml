@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: lauff/node-postgres-app
+          image: lauff/taskflow-cicd-app
           ports:
             - containerPort: 3000
           env:

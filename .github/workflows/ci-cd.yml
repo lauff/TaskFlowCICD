@@ -26,6 +26,9 @@ jobs:
         with:
           node-version: 14
 
+      - name: Change to app directory
+        run: cd app
+
       - name: Install dependencies
         run: npm install
 
@@ -39,14 +42,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Change to app directory
+        run: cd app
+      
       - name: Build Docker image
-        run: docker build -t lauff/node-postgres-app .
+        run: docker build -t lauff/taskflow-cicd-app .
 
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       - name: Push Docker image
-        run: docker push lauff/node-postgres-app
+        run: docker push lauff/taskflow-cicd-app
 
   deploy:
     needs: docker-build-push
